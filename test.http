@@ -1,2 +1,11 @@
 ### GET Method
-GET http://localhost:8000
+GET http://localhost:8000/api/v1/users
+
+### Post Method
+POST http://localhost:8000/api/v1/users
+Content-Type: application/json
+
+{
+    "task": "coding",
+    "hr":40,
+}

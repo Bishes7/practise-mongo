@@ -1,5 +1,11 @@
 import express from "express";
 
+import useRouter from "./src/userRouter.js";
+
+import dbConnect from "./src/dbConnect.js";
+// Call the dbconnect funtion
+dbConnect();
+
 const app = express();
 
 // Define a port first
@@ -11,10 +17,7 @@ app.listen(PORT, (error) => {
   error ? console.log(error) : console.log(`http://localhost: ${PORT}`);
 });
 
-// Using the GET Method
+// Using the middleware to connect to the userRouter.js
+app.use("/api/v1/users", useRouter);
 
-app.get("/", (req, res) => {
-  res.json({
-    message: "Get method implemented",
-  });
-});
+app.use(express.json());
